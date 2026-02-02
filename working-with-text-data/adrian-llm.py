@@ -101,6 +101,8 @@ second_batch = next(data_iter);
 print("First batch", first_batch);
 print("Second batch", second_batch);
 
+## Note that the property called `drop_last` is important as it drops the last batch of tokenised array of words.
+## Without it, this would cause instabilities when training.
 '''
 To allow prediction, we want the inputs and targets
 Since we want the model to predict the next word, the targets are the inputs shifted by one position to the right.
