@@ -91,7 +91,7 @@ def create_dataloader_v1(
         num_workers=num_workers
     );
 
-    return dataloader;
+    return dataloader, tokeniser.n_vocab;
     
 # Now that create_dataloader_v1 is defined, we can use it
 dataloader = create_dataloader_v1(raw_text, batch_size = 1, max_length = 1, stride = 1, shuffle = False);
@@ -100,7 +100,6 @@ first_batch = next(data_iter);
 second_batch = next(data_iter);
 print("First batch", first_batch);
 print("Second batch", second_batch);
-
 ## Note that the property called `drop_last` is important as it drops the last batch of tokenised array of words.
 ## Without it, this would cause instabilities when training.
 '''
