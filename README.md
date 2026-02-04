@@ -13,6 +13,7 @@ Core implementations for text processing and tokenization:
 - **`adrian-llm.py`** - 🧠 Custom LLM implementation
 - **`gpt2_tokeniser.py`** - 🔤 GPT-2 tokenizer implementation
 - **`simple_tokeniser.py`** - 📝 Basic tokenizer for text preprocessing
+- **`token-embeddings_and_encoding_word_position.py`** - 🔍 Demonstrates token embeddings and encoding word positions for LLMs
 
 ## 🚀 Getting Started
 
@@ -35,6 +36,7 @@ pip install -r requirements.txt
 python working-with-text-data/simple_tokeniser.py
 python working-with-text-data/gpt2_tokeniser.py
 python working-with-text-data/adrian-llm.py
+python token-embeddings_and_encoding_word_position.py
 ```
 
 ## ✨ Features
@@ -58,4 +60,4 @@ MIT License
 
 ---
 
-_Last updated: [03-Feb-2026]_
+_Last updated: [05-Feb-2026]_
