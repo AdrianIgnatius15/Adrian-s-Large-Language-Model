@@ -55,29 +55,31 @@ Instead of focusing on the absolute position of a token, the emphasis of relativ
 position or distance between tokens. This means the model learns the relationships in terms of "how far apart" rather than
 "at which exact position". The advantage here is that the model can generalise better to sequences of varying lengths.
 '''
-vocab_size = 50257
-output_dim = 256
+vocab_size2: int = 50257;
+output_dim2: int = 256;
 
-token_embedding_layer = torch.nn.Embedding(vocab_size, output_dim)
-print(token_embedding_layer.shape)
+token_embedding_layer = torch.nn.Embedding(vocab_size2, output_dim2)
 
 max_length: int = 4
 dataloader_2, vocab_size_2 = create_dataloader_v1(
     raw_text, batch_size=8, max_length=max_length, stride=max_length, shuffle=False
 );
-data_iter = iter(dataloader_2);
-inputs, targets = next(data_iter);
+data_iter2 = iter(dataloader_2);
+inputs, targets = next(data_iter2);
 
 print("Token IDs: \n", inputs);
 print("\n Inputs shape: \n", inputs.shape);
+
 token_embeddings = token_embedding_layer(inputs)
 print(token_embeddings.shape)
+
 ## GPT-2 uses absolute position embeddings, so we just create another embedding layer
 context_length: int = max_length;
-position_embedding_layer = torch.nn.Embedding(context_length, output_dim);
-print(position_embedding_layer.weight);
+position_embedding_layer = torch.nn.Embedding(context_length, output_dim2);
+# print(position_embedding_layer.weight);
+
 position_embeddings = position_embedding_layer(torch.arange(max_length));
-print("Position embeddings", position_embeddings);
+# print("Position embeddings", position_embeddings);
 ## To create the input embeddings used in LLM, we simply add the token and the positional embeddings:
 ## token_embeddings + position_embeddings
 input_embeddings = token_embeddings + position_embeddings;
